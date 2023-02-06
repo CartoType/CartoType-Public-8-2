@@ -1,6 +1,6 @@
 /*
 cartotype_base.h
-Copyright (C) 2004-2022 CartoType Ltd.
+Copyright (C) 2004-2023 CartoType Ltd.
 See www.cartotype.com for more information.
 */
 
@@ -1065,7 +1065,8 @@ double SphericalPolylineLength(std::function<const PointFP* ()> aNextPoint);
 void GetSphericalAreaAndLength(std::function<const PointFP* ()> aNextPoint,bool aIsPolyline,double* aArea,double* aLength);
 void GetSphericalAreaAndLength(const CoordSet& aCoordSet,bool aIsPolyline,double* aArea,double* aLength) noexcept;
 double AzimuthInDegrees(double aLong1,double aLat1,double aLong2,double aLat2) noexcept;
-PointFP PointAtAzimuth(const PointFP& aPoint,double aDir,double aDistanceInMetres) noexcept;
+PointFP PointAtAzimuth(const PointFP& aPoint,double aDir,double aDistanceInMeters) noexcept;
+std::vector<PointFP> GreatCircleLine(const PointFP& aStartPoint,const PointFP& aEndPoint,double aDistanceInMeters);
 double GreatCircleDistanceInMetersUsingEllipsoid(double aLong1,double aLat1,double aLong2,double aLat2) noexcept;
 
 /** The standard number of levels of the text index to load into RAM when loading a CTM1 file. */

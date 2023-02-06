@@ -1,6 +1,6 @@
 /*
 cartotype_path.h
-Copyright (C) 2013-2022 CartoType Ltd.
+Copyright (C) 2013-2023 CartoType Ltd.
 See www.cartotype.com for more information.
 */
 
@@ -319,6 +319,7 @@ class MPath
     [[nodiscard]] PointFP PointAtLength(double aPos) const;
     [[nodiscard]] std::pair<Point,bool> End() const;
     void Write(DataOutputStream& aOutput) const;
+    void WriteAsXml(MOutputStream& aOutput) const;
     [[nodiscard]] bool IsEmpty() const;
     [[nodiscard]] bool IsPoint() const;
     [[nodiscard]] bool IsGridOrientedRectangle(Rect* aRect = nullptr) const;
@@ -961,7 +962,7 @@ class Outline: public MPath
     /** Clears the outline by removing all contours. */
     void Clear() { iContour.clear(); }
 
-    /** Appends a new empty contour to the outline and return it. */
+    /** Appends a new empty contour to the outline and returns it. */
     [[nodiscard]] Contour& AppendContour()
         {
         iContour.emplace_back();
@@ -988,6 +989,7 @@ class Outline: public MPath
         iContour.clear();
         }
     [[nodiscard]] static Outline Read(DataInputStream& aInput);
+    [[nodiscard]] static Outline ReadFromXml(MInputStream& aInput);
 
     /** Returns an iterator to the start of the vector of contours. */
     std::vector<Contour>::iterator begin() { return iContour.begin(); }

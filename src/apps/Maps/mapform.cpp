@@ -733,7 +733,6 @@ void MapForm::LeftButtonDown(int32_t aX,int32_t aY)
         {
         m_framework->EditAddCurrentPoint();
         m_writable_map_changed = true;
-        return;
         }
     else
         {

@@ -94,6 +94,8 @@ class MOutputStream
     virtual void Write(const uint8_t* aBuffer,size_t aBytes) = 0;
     /** Writes a null-terminated string to the stream. Does not write the final null. */
     void WriteString(const char* aString) { Write((const uint8_t*)aString,strlen(aString)); }
+    /** Writes a std::string to the stream. */
+    void WriteString(const std::string& aString) { Write((const uint8_t*)aString.c_str(),aString.size()); }
     void WriteString(const MString& aString);
     void WriteXmlText(const MString& aString);
     };

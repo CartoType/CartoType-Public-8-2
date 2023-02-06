@@ -267,8 +267,10 @@ class TypefaceData
     bool InMemory() const { return iData != nullptr; }
     /** Returns the name of the file, if the data is in a file. */
     const MString& Name() const { return iName; }
-    /** Gets a pointer to the in-memory data and its length in bytes. */
-    void GetData(const uint8_t*& aData,size_t& aLength) const { aData = iData; aLength = iLength; }
+    /** Returns a pointer to the in-memory data. */
+    const uint8_t* Data() const { return iData; }
+    /** Returns the length of the in-memory data in bytes. */
+    size_t DataLength() const { return iLength; }
 
     private:
     String iName;

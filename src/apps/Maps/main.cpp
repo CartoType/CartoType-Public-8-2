@@ -3,6 +3,10 @@
 
 int main(int argc,char* argv[])
     {
+#ifdef Q_OS_WIN32
+    _setmaxstdio(8192);
+#endif
+
     QApplication::setAttribute(Qt::AA_UseOpenGLES);
     QApplication a(argc,argv);
     QCoreApplication::setOrganizationName("CartoType");

@@ -127,7 +127,7 @@ class FrameworkEngine
     Result Configure(const String& aFilename);
     Result LoadFont(const String& aFontFileName);
     Result LoadFont(const uint8_t* aData,size_t aLength,bool aCopyData);
-    std::unique_ptr<FrameworkEngine> Copy(Result& aError);
+    std::unique_ptr<FrameworkEngine> Copy(Result& aError,bool aCopyFonts);
 
     // internal use only
 
@@ -368,7 +368,7 @@ class Framework: public MNavigatorObserver
         };
     static std::unique_ptr<Framework> New(Result& aError,const Param& aParam);
 
-    std::unique_ptr<Framework> Copy(Result& aError,bool aFull = true) const;
+    std::unique_ptr<Framework> Copy(Result& aError,bool aCopyTextIndex = true,bool aCopyFonts = true) const;
 
     // general
     Result License(const String& aKey);

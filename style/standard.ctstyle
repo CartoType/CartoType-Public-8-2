@@ -852,14 +852,20 @@ For more information see http://www.cartotype.com.
     </scale>
     <layer name='graticule'>
         <scale max='1500000'>
-            <condition exp='interval lt 3600'>
+            <condition exp='_interval lt 1'>
                 <line fill='lightblue+0.1black' width='0.3pt'/>
-                <label baseline='text-after-edge' color='lightblue+0.1black' font-size='5pt'/>
+                <label baseline='text-after-edge' color='lightblue+0.1black' font-size='5pt' glow='white'/>
             </condition>
         </scale>
-        <condition exp='interval ge 3600'>
-            <line fill='lightblue+0.1black' width='0.5pt'/>
-            <label baseline='text-after-edge' color='lightblue+0.1black' font-size='6pt'/>
+        <scale max='10000000'>
+            <condition exp='_interval ge 1 and _interval lt 5'>
+                <line fill='lightblue+0.1black' width='0.7pt'/>
+                <label baseline='text-after-edge' color='lightblue+0.1black' font-size='6pt' glow='white'/>
+            </condition>
+        </scale>
+        <condition exp='_interval ge 5'>
+            <line fill='lightblue+0.1black' width='0.7pt'/>
+            <label baseline='text-after-edge' color='lightblue+0.1black' font-size='6pt' glow='white'/>
         </condition>
     </layer>
     <scale max='250000'>

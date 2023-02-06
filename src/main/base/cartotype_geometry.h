@@ -200,6 +200,7 @@ class Geometry: public GeneralGeometry<OutlinePointFP>
     std::vector<Geometry> Clip(ClipOperation aClipOperation,const MapObjectArray& aMapObjectArray) const;
     std::vector<Geometry> Clip(ClipOperation aClipOperation,std::function<const MapObject* (size_t)> aObject,size_t aObjectCount) const;
     static Geometry Envelope(const MapObject& aMapObject,double aOffsetInMeters);
+    Result ConvertLinesToGreatCircles(double aMaxDistanceInMeters);
 
     private:
     /** Creates an outline in map units from this geometry using aProjection. */
